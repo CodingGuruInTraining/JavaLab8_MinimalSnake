@@ -10,7 +10,7 @@ import java.util.*;
 
 public class Snake extends TimerTask implements KeyListener {
 
-    int height = 300; int width = 400;   //pixels
+    int height = 800; int width = 900;   //pixels
     int squareSize = 50;
     
     int speed = 300;   // 300 = update every 300 ms.  Larger number = slower game
