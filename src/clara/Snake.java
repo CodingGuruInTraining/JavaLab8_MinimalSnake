@@ -115,7 +115,7 @@ public class Snake extends TimerTask implements KeyListener {
             }
 
             else {                             // Game is not over. Draw snake and kibble, wherever they are.
-                g.setColor(Color.YELLOW);
+                g.setColor(new Color(176, 66, 244)); //Color.YELLOW);
                 g.fillRect(kibble[0] * squareSize, kibble[1] * squareSize, squareSize, squareSize);
 
                 g.setColor(Color.GREEN);
