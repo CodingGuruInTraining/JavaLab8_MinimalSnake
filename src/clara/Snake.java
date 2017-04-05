@@ -86,7 +86,6 @@ public class Snake extends TimerTask implements KeyListener {
 //                g.drawString("try again in " + (gameOver+1)/2 + "...", 120,150);
 //                g.drawString("press q to quit", 120, 200);
 
-
                 g.drawString("............................................________........................", 250, 50);
                 g.drawString("....................................,.-‘”...................``~.,.................. ", 250, 75);
                 g.drawString(".............................,.-”...................................“-.,............ ", 250, 100);
@@ -115,7 +114,7 @@ public class Snake extends TimerTask implements KeyListener {
             }
 
             else {                             // Game is not over. Draw snake and kibble, wherever they are.
-                g.setColor(new Color(176, 66, 244)); //Color.YELLOW);
+                g.setColor(new Color(176, 66, 244));
                 g.fillRect(kibble[0] * squareSize, kibble[1] * squareSize, squareSize, squareSize);
 
                 g.setColor(Color.GREEN);
@@ -178,10 +177,8 @@ public class Snake extends TimerTask implements KeyListener {
                 } while (contains(kibble, snake));
             }
         }
-
         snakePanel.repaint();    // And in any case, repaint the snakePanel JPanel to redraw the game in the new state.
     }
-
 
     private void resetGame() {        // Set score to 0, make new snake, set move direction, create kibble.
         score = 0;
@@ -222,7 +219,6 @@ public class Snake extends TimerTask implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT && currentMove[0] != -1) {
             nextMove = new int[]{1, 0};
         }
-
         if (e.getKeyChar() == 'q') {     // Quit
             System.exit(0);
         }
@@ -232,5 +228,4 @@ public class Snake extends TimerTask implements KeyListener {
     public void keyReleased(KeyEvent e) {}    // Program doesn't need these but KeyListener requires we implement all methods
     @Override
     public void keyTyped(KeyEvent e) {}
-
 }
