@@ -143,6 +143,16 @@ public class Snake extends TimerTask implements KeyListener {
 
             int[] newHead = {headX + nextMove[0], headY + nextMove[1]};   //create new head
 
+
+
+            if (newHead[0] < 0) { newHead[0] = (xSquares + newHead[0]); }
+            if (newHead[0] > xSquares) { newHead[0] = (newHead[0] - xSquares); }
+            if (newHead[1] < 0) { newHead[1] = (ySquares + newHead[1]); }
+            if (newHead[1] > ySquares) { newHead[1] = (newHead[1] - ySquares); }
+
+
+
+
             if (contains(newHead, snake)) {   //Is new head in snake? Snake ran into it's own body, game over.
                 gameOver = clockTicksToRestart;                 // A positive value means the game is considered over. If this is positive, run() decreases it by 1 every time to provide a 'countdown' to the next game.
             }
@@ -163,10 +173,21 @@ public class Snake extends TimerTask implements KeyListener {
             headX = newHead[0];    //Convenience variables for new head x and y
             headY = newHead[1];
 
-            if ((headX < 0 || headX > xSquares) || (headY < 0 || headY > ySquares)) {   //Head outside board? Snake hit wall, game over
-                gameOver = clockTicksToRestart;
-                return;
-            }
+
+
+//            if (headX < 0) { headX = (xSquares + headX); }
+//            if (headX > xSquares) { headX = (headX - xSquares); }
+//            if (headY < 0) { headY = (ySquares + headY); }
+//            if (headY > ySquares) { headY = (headY - ySquares); }
+
+
+
+
+
+//            if ((headX < 0 || headX > xSquares) || (headY < 0 || headY > ySquares)) {   //Head outside board? Snake hit wall, game over
+//                gameOver = clockTicksToRestart;
+//                return;
+//            }
 
             if (headX == kibble[0] && headY == kibble[1]) {      //Is kibble in same square as snake head? Snake ate kibble.
                 score++;                              // increase score
